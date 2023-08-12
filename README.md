@@ -15,7 +15,6 @@ MySQL: Database for user authentication and chat history.<br>
 <h3>Getting Started</h3>
 Follow these steps to set up the Multi-User Chat App locally on your machine:
 
-<li>Clone the Repository: git clone https://github.com/yourusername/multi-user-chat-app-java.git</li>
 <li>Import Project: Open your favorite Java IDE and import the project as a JavaFX application.</li>
 <li>Import Project: Open your favorite Java IDE and import the project as a JavaFX application.</li>
 <li>Set Up MySQL Database: Run the SQL script provided in the database folder to set up the required tables.</li>
