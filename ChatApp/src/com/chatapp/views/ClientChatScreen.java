@@ -9,6 +9,7 @@ import java.net.UnknownHostException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -16,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import com.chatapp.network.Client;
+import com.chatapp.utils.UserInfo;
 
 public class ClientChatScreen extends JFrame {
 
@@ -42,8 +44,14 @@ public class ClientChatScreen extends JFrame {
 	public void sendIt() {
 		String message = textField.getText();
 		try {
-			message = message+"\n";
-			client.sendMessages(message);
+			if(!message.isEmpty()) {
+				message = message+"\n";
+				client.sendMessages(UserInfo.USER_NAME + " - " + message);
+			}
+			else {
+				JOptionPane.showMessageDialog(this, "Cannot send Empty message");
+
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

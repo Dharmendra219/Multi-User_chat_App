@@ -56,6 +56,12 @@ public class ServerWorker extends Thread {
 			try {
 				if(br != null)br.close();
 				if(in != null)in.close();
+				if (out != null) {
+					out.close();
+				}
+				if (clientSocket != null) {
+					clientSocket.close();
+				}
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

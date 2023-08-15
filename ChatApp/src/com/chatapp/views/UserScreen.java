@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.Window.Type;
 import javax.swing.UIManager;
 
+import com.chatapp.utils.UserInfo;
 import com.chatapp.dao.UserDAO;
 import com.chatapp.dto.UserDTO;
 
@@ -44,10 +45,10 @@ public class UserScreen extends JFrame{
 			
 			if(userDAO.isLogin(userDTO)) {
 				message = "Welcome " + userid;
+				UserInfo.USER_NAME = userid;
+				setVisible(false);
+				dispose();
 				JOptionPane.showMessageDialog(this, message);
-				setVisible(false); // so that when the DashBoard opens then it will the login page...
-				dispose(); // it will clean from memory current login frame...
-				
 				DashBoard dashBoard = new DashBoard(message);
 				dashBoard.setVisible(true);
 			}

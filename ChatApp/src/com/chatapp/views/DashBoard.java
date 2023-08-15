@@ -1,10 +1,17 @@
 package com.chatapp.views;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.UnknownHostException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.chatapp.views.ClientChatScreen;
+
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -37,6 +44,20 @@ public class DashBoard extends JFrame {
 		menuBar.add(ChatMenu);
 		
 		JMenuItem StartChat = new JMenuItem("Start Chat");
+		StartChat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					dispose();
+					new ClientChatScreen();
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		ChatMenu.add(StartChat);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
